@@ -16,7 +16,7 @@ This document explains the project **from the starting point**, in the order the
 
 ---
 
-## 2. Config: `next.config.ts`
+## 2. Config: `next.config.js`
 
 **Role:** Next.js configuration.
 
@@ -26,7 +26,7 @@ This document explains the project **from the starting point**, in the order the
 
 ---
 
-## 3. Root layout: `app/layout.tsx`
+## 3. Root layout: `app/layout.js`
 
 **Role:** The **root layout** wraps every page. It runs first and wraps all routes.
 
@@ -241,7 +241,7 @@ All under **`app/api/`**. Each **`route.js`** file exports **GET** and/or **POST
 
 ## Flow summary (request path)
 
-1. User opens **`/`** → **`app/layout.tsx`** wraps **`app/page.js`** (home).
+1. User opens **`/`** → **`app/layout.js`** wraps **`app/page.js`** (home).
 2. User clicks “Browse movies” → goes to **`/dashboard`** → **`app/dashboard/layout.js`** wraps **`app/dashboard/page.js`**.
 3. Dashboard runs **GET /api/movies** → **`app/api/movies/route.js`** reads **`data/movies.json`** → returns list → dashboard shows grid and links like **`/dashboard/movie/inception`**.
 4. User clicks a movie → **`/dashboard/movie/inception`** → **`app/dashboard/movie/[slug]/page.js`** with **`params.slug = "inception"`**.
@@ -256,14 +256,15 @@ All under **`app/api/`**. Each **`route.js`** file exports **GET** and/or **POST
 ```
 nextclass/
 ├── package.json
-├── next.config.ts
+├── next.config.js
+├── jsconfig.json        (path alias @/* for JavaScript)
 ├── data/
 │   ├── movies.json
 │   └── bookings.json
 ├── lib/
 │   └── seats.js
 └── app/
-    ├── layout.tsx          (root layout)
+    ├── layout.js           (root layout)
     ├── globals.css
     ├── provider.jsx        (React Query)
     ├── page.js             (home: /)
