@@ -5,6 +5,7 @@ const DATA_DIR = path.join(process.cwd(), "data");
 const MOVIES_PATH = path.join(DATA_DIR, "movies.json");
 
 export async function GET(_req, { params }) {
+  // console.log("GET request received", params);
   try {
     const id = (await params).id;
     const raw = await readFile(MOVIES_PATH, "utf-8");
